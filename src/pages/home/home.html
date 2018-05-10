@@ -19,10 +19,11 @@
     <ion-list-header>
       Products
     </ion-list-header>
-    <ion-item  *ngFor="let iox of honey | async">
-      <h1>{{iox.nome}}</h1>
-      <p></p> 
-      <p></p>
+    <ion-item  *ngFor="let iox of honey">
+     <h3>{{iox.nome}}</h3>
+     <h5>{{iox.quantidade}}</h5>
+      
+
     </ion-item>
   </ion-list>
 

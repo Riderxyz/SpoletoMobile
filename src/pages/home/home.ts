@@ -26,12 +26,12 @@ export class HomePage {
     this.itemCollection = this.afs.collection('Molhos'); 
 
 
-    this.itemCollection.valueChanges().subscribe((s)=>{
+   this.afs.collection('Molhos').valueChanges().subscribe((s)=>{
       console.log('Acho q é iisso', s);
       this.honey = s
       
     })
-
+ 
   }
 
 }
