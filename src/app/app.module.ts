@@ -13,7 +13,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-
+import firebase from 'firebase'
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -27,6 +27,7 @@ export const firebaseConfig = {
   messagingSenderId: "1017161849787"
 };
 
+firebase.initializeApp(firebaseConfig)
 @NgModule({
   declarations: [
     MyApp,
@@ -38,7 +39,7 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     AngularFireModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    //AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
     IonicModule.forRoot(MyApp)
@@ -58,3 +59,4 @@ export const firebaseConfig = {
   ]
 })
 export class AppModule { }
+ 
