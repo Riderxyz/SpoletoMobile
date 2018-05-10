@@ -9,10 +9,9 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
 //AngularFire
+
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AngularFireOfflineModule } from 'angularfire2-offline';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -40,10 +39,8 @@ export const firebaseConfig = {
     BrowserModule,
     AngularFireModule,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireOfflineModule,
-    AngularFireDatabase,
+    AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
-    AngularFirestoreModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
