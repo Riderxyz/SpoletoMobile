@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
+  <h2>Welcome to Isaaasaonic!</h2>
   <p>
     This starter project comes with simple tabs-based layout for apps
     that are going to primarily use a Tabbed UI.
@@ -14,4 +14,18 @@
     Take a look at the <code>src/pages/</code> directory to add or change tabs,
     update any existing page or create new pages.
   </p>
+
+  <ion-list>
+    <ion-list-header>
+      Products
+    </ion-list-header>
+    <ion-item  *ngFor="let iox of honey | async">
+      <h1>{{iox.nome}}</h1>
+      <p></p> 
+      <p></p>
+    </ion-item>
+  </ion-list>
+
+
+
 </ion-content>

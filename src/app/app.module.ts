@@ -1,3 +1,4 @@
+
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -11,9 +12,12 @@ import { TabsPage } from '../pages/tabs/tabs';
 //AngularFire
 
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import firebase from 'firebase'
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { credentials } from './../config';
+
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -27,7 +31,7 @@ export const firebaseConfig = {
   messagingSenderId: "1017161849787"
 };
 
-firebase.initializeApp(firebaseConfig)
+//firebase.initializeApp(firebaseConfig)
 @NgModule({
   declarations: [
     MyApp,
@@ -38,10 +42,10 @@ firebase.initializeApp(firebaseConfig)
   ],
   imports: [
     BrowserModule,
-    AngularFireModule,
-    //AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(credentials.firebase),
     AngularFirestoreModule.enablePersistence(),
     AngularFireAuthModule,
+    AngularFireDatabaseModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],

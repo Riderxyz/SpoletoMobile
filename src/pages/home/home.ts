@@ -1,28 +1,37 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-//import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-//import { Observable } from 'rxjs/Observable';
- import firebase from 'firebase'
-import 'firebase/firestore' 
+import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { Observable } from 'rxjs/Observable';
+
+
+export interface Item {
+  nome: string,
+  quantidade: number
+}
+
+
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-items:any
-db = firebase.firestore()
-  constructor(public navCtrl: NavController) {
+  itemCollection: AngularFirestoreCollection<Item>;
+  items: Observable<Item[]>
+  honey:any
+  constructor(public navCtrl: NavController, public afs: AngularFirestore) {
+    this.itemCollection = this.afs.collection('Molhos'); 
 
-    var X = this.items = this.db.collection('Molhos').get().then(doc =>{
 
-      console.log(doc.data());
+    this.itemCollection.valueChanges().subscribe((s)=>{
+      console.log('Acho q é iisso', s);
+      this.honey = s
       
     })
-      
 
-    console.log(X);
-    
   }
 
 }
