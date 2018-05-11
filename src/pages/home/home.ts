@@ -25,7 +25,6 @@ export class HomePage {
   constructor(public navCtrl: NavController, public afs: AngularFirestore) {
     this.itemCollection = this.afs.collection('Molhos'); 
 
-
    this.afs.collection('Molhos').valueChanges().subscribe((s)=>{
       console.log('Acho q é iisso', s);
       this.honey = s
